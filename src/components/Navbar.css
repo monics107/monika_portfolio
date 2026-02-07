@@ -1,0 +1,22 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+
+  padding: 20px 60px;
+  background: #0b0d2b;
+  color: white;
+}
+
+.navbar span {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.navbar span:hover {
+  color: #6ec1ff;
+}

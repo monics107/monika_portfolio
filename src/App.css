@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+.page-section {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-text {
+  font-size: 70px;
+  font-weight: 800;
+  letter-spacing: 4px;
+}
+
+html, body {
+  background: #000 !important;
+  margin: 0;
+  padding: 0;
+}
+html, body, #root {
+  background-color: #000 !important;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+
+.app-wrapper {
+  background-color: #000 !important;
+  min-height: 100vh;
+   padding-top: 80px; 
+}
+

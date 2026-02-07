@@ -1,0 +1,201 @@
+.projects {
+  padding: 80px 8%;
+  background: radial-gradient(circle at top, #111133, #070712);
+  color: #ffffff;
+}
+
+/* =============================
+   HEADING
+============================= */
+
+.projects-heading {
+  font-size: 48px;
+  margin-bottom: 50px;
+}
+
+/* =============================
+   GRID (2 PER ROW)
+============================= */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+/* =============================
+   CARD
+============================= */
+
+.project-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 22px;
+  paddingpadding: 20px;
+  padding: 20px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.25s; }
+.project-card:nth-child(3) { animation-delay: 0.4s; }
+.project-card:nth-child(4) { animation-delay: 0.55s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 22px 55px rgba(168, 85, 247, 0.35);
+  transition: 0.35s ease;
+}
+
+/* =============================
+   IMAGE (BIGGER + FULL VIEW)
+============================= */
+
+.project-img {
+  position: relative;
+  height: 260px;              /* ⬅️ BIGGER */
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+}
+
+.project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;        /* ⬅️ FULL IMAGE, NO CROP */
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-img img {
+  transform: scale(1.03);
+}
+
+/* =============================
+   GITHUB ICON
+============================= */
+
+.github-icon {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 9px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 18px;
+  transition: 0.3s ease;
+}
+
+.project-card:hover .github-icon {
+  background: #a855f7;
+  transform: rotate(8deg) scale(1.1);
+}
+
+/* =============================
+   TEXT
+============================= */
+
+.project-card h2 {
+  font-size: 19px;
+  margin: 16px 0 8px;
+}
+
+.project-date {
+  font-size: 13px;
+  color: #bcbcdc;
+  margin-bottom: 10px;
+}
+
+.project-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #e0e0f0;
+}
+
+/* =============================
+   RESPONSIVE
+============================= */
+
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-img {
+    height: 240px;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-heading {
+    font-size: 36px;
+  }
+}
+/* =============================
+   SKILLS SECTION
+============================= */
+
+.skills-section {
+  margin-top: 100px;
+}
+
+.skills-heading {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 36px;
+  color: #ffffff;
+}
+
+/* Container */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+/* Skill pill */
+.skill-pill {
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.7);
+
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+/* Hover animation */
+.skill-pill:hover {
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(168, 85, 247, 0.45);
+}
+
+/* =============================
+   SKILLS RESPONSIVE
+============================= */
+
+@media (max-width: 768px) {
+  .skills-heading {
+    font-size: 34px;
+  }
+
+  .skill-pill {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
