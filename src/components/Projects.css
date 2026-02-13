@@ -1,4 +1,6 @@
 .projects {
+  position: relative;
+  z-index: 1;
   padding: 80px 8%;
   background: radial-gradient(circle at top, #111133, #070712);
   color: #ffffff;
@@ -24,13 +26,12 @@
 }
 
 /* =============================
-   CARD
+   PROJECT CARD
 ============================= */
 
 .project-card {
   background: rgba(255, 255, 255, 0.04);
   border-radius: 22px;
-  paddingpadding: 20px;
   padding: 20px;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
 
@@ -58,12 +59,12 @@
 }
 
 /* =============================
-   IMAGE (BIGGER + FULL VIEW)
+   IMAGE (FULL VIEW)
 ============================= */
 
 .project-img {
   position: relative;
-  height: 260px;              /* ⬅️ BIGGER */
+  height: 260px;
   border-radius: 18px;
   overflow: hidden;
   background: #000;
@@ -72,7 +73,7 @@
 .project-img img {
   width: 100%;
   height: 100%;
-  object-fit: contain;        /* ⬅️ FULL IMAGE, NO CROP */
+  object-fit: contain;
   transition: transform 0.4s ease;
 }
 
@@ -102,7 +103,7 @@
 }
 
 /* =============================
-   TEXT
+   TEXT CONTENT
 ============================= */
 
 .project-card h2 {
@@ -123,6 +124,31 @@
 }
 
 /* =============================
+   FLOATING BUBBLES BACKGROUND
+============================= */
+
+.projects-bubbles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.projects-bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(168, 85, 247, 0.6);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.8);
+  animation: floatBubble 10s ease-in-out infinite;
+}
+
+@keyframes floatBubble {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-25px); }
+  100% { transform: translateY(0); }
+}
+
+/* =============================
    RESPONSIVE
 ============================= */
 
@@ -139,63 +165,5 @@
 @media (max-width: 600px) {
   .projects-heading {
     font-size: 36px;
-  }
-}
-/* =============================
-   SKILLS SECTION
-============================= */
-
-.skills-section {
-  margin-top: 100px;
-}
-
-.skills-heading {
-  font-size: 42px;
-  font-weight: 700;
-  margin-bottom: 36px;
-  color: #ffffff;
-}
-
-/* Container */
-.skills-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-}
-
-/* Skill pill */
-.skill-pill {
-  padding: 12px 26px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #ffffff;
-
-  background: rgba(168, 85, 247, 0.12);
-  border: 1px solid rgba(168, 85, 247, 0.7);
-
-  cursor: default;
-  transition: all 0.3s ease;
-}
-
-/* Hover animation */
-.skill-pill:hover {
-  background: linear-gradient(135deg, #a855f7, #7c3aed);
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 10px 25px rgba(168, 85, 247, 0.45);
-}
-
-/* =============================
-   SKILLS RESPONSIVE
-============================= */
-
-@media (max-width: 768px) {
-  .skills-heading {
-    font-size: 34px;
-  }
-
-  .skill-pill {
-    padding: 10px 20px;
-    font-size: 13px;
   }
 }

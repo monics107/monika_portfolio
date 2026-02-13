@@ -1,212 +1,161 @@
-/* MAIN CONTAINER */
-
-.timeline-container {
-  padding-top: 150px !important;
+.experience-hero {
+  background: radial-gradient(circle at top, #111133, #070712);
+  color: white;
+  min-height: 100vh;
+  padding-top: 80px;
+  position: relative;
+  overflow: hidden;
 }
 
+/* ===== FLOATING STARS ===== */
+.stars-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: floatStar 6s ease-in-out infinite;
+}
+
+@keyframes floatStar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+/* ===== CONTAINER ===== */
 .timeline-container {
-  width: 100%;
   max-width: 900px;
   margin: auto;
-  padding: 40px 20px;
-  color: #fff;
-  background: #000;
   position: relative;
-}
-
-/* TITLES */
-.section-title {
-  text-align: center;
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 50px;
-  position: relative;
-  z-index: 10;
-}
-
-/* Experience title: push line DOWN */
-.section-title.experience-title {
-  margin-top: 60px;
-  margin-bottom: 80px;   /* main spacing before line */
-}
-
-/* Education title: extra spacing */
-.section-title.education-title {
-  margin-top: 150px;     /* space after last experience card */
-  margin-bottom: 80px;
-}
-
-/* TIMELINE LINE */
-.timeline-line {
-  width: 3px;
-  background: #444;
-  position: absolute;
-  left: 50%;
-  top: 160px;             /* <-- LINE STARTS BELOW THE HEADING */
-  bottom: 0;
-  transform: translateX(-50%);
-  z-index: 1;
-}
-
-/* TIMELINE ITEM */
-.timeline-item {
-  position: relative;
-  width: 50%;
-  padding: 20px 25px;
-  margin-bottom: 120px;
-}
-
-/* LEFT / RIGHT */
-.timeline-item.left {
-  left: 0;
-}
-
-.timeline-item.right {
-  left: 50%;
-}
-
-/* DOTS */
-.timeline-dot {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
   z-index: 2;
 }
 
-.timeline-item.left .timeline-dot {
-  right: -8px;
+/* ===== TITLES ===== */
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  margin: 80px 0 40px;
 }
 
-.timeline-item.right .timeline-dot {
-  left: -8px;
+.education-title {
+  margin-top: 100px;
 }
 
-/* CARD */
+/* ===== CONTENT WRAPPER ===== */
+.timeline-content {
+  position: relative;
+}
+
+/* ===== CENTER LINE ===== */
+.timeline-wrapper {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg,#b764eb,#a72de8,#700594);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ===== ITEMS ===== */
+.timeline-item {
+  position: relative;
+  width: 46%;
+  padding: 15px;
+  margin-bottom: 100px;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: left;
+  padding-right: 20px;
+}
+
+.timeline-item.right {
+  left: 54%;
+  text-align: left;
+  padding-left: 20px;
+}
+
+/* ===== DOT ===== */
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+}
+
+.timeline-item.left .timeline-dot { right: -10px; }
+.timeline-item.right .timeline-dot { left: -10px; }
+
+/* ===== CARD ===== */
 .timeline-card {
-  background: #181825;
-  padding: 25px;
-  border-radius: 14px;
-  width: 92%;
-  margin: 0 auto;
-  box-shadow: 0 0 12px rgba(0,0,0,0.3);
-  opacity: 0;
-  transform: translateY(20px);
+  background: rgba(255,255,255,0.10);
+  backdrop-filter: blur(18px);
+  border-radius: 16px;
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,0.18);
+
+  transition: all 0.35s ease;
+  transform: translateY(0);
 }
 
-/* TEXT */
-.period {
-  opacity: 0.7;
-  font-size: 14px;
-  margin-bottom: 8px;
+/* HOVER EFFECT */
+.timeline-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 20px 50px rgba(147, 75, 214, 0.804);
+}
+.timeline-item {
+  transition: transform 0.3s ease;
 }
 
-.title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 12px;
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.3);
+  box-shadow: 0 0 15px currentColor;
 }
 
-/* LIST */
-.timeline-card ul {
-  padding-left: 18px;
+.timeline-card {
+  animation: floatCard 5s ease-in-out infinite;
 }
 
-.timeline-card ul li {
-  margin-bottom: 8px;
-  font-size: 14px;
-  opacity: 0.9;
+@keyframes floatCard {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
 }
 
-/* MOBILE */
+.period { font-size: 14px; opacity: 0.7; }
+.title { font-size: 18px; font-weight: bold; margin: 10px 0; }
+
+ul { padding-left: 18px; }
+li { font-size: 14px; margin-bottom: 6px; }
+
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
   .timeline-item {
     width: 100%;
     left: 0 !important;
-    padding-left: 50px;
+    padding-left: 40px;
   }
 
   .timeline-line {
     left: 20px;
     transform: none;
-    top: 180px; /* also adjust on mobile */
   }
 
-  .timeline-item.left .timeline-dot,
-  .timeline-item.right .timeline-dot {
-    left: -8px;
+  .timeline-dot {
+    left: -8px !important;
   }
-}
-.timeline-container {
-  padding-top: 150px; /* ensures navbar is visible */
-}
-/* ===== GLOWING TIMELINE LINE ===== */
-.animated-line {
-  background: linear-gradient(
-    180deg,
-    #6cc4a1,
-    #93deff,
-    #e8a0bf
-  );
-  animation: glowLine 6s ease-in-out infinite;
-}
-
-@keyframes glowLine {
-  0% { opacity: 0.4; }
-  50% { opacity: 1; }
-  100% { opacity: 0.4; }
-}
-
-/* ===== PULSING DOT ===== */
-.pulse-dot {
-  animation: pulse 2s infinite;
-  box-shadow: 0 0 10px currentColor;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: scale(1.4);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-}
-
-/* ===== CARD HOVER EFFECT ===== */
-.hover-card {
-  transition: all 0.4s ease;
-  position: relative;
-}
-
-.hover-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 14px;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.08),
-    transparent
-  );
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.hover-card:hover::before {
-  opacity: 1;
-}
-
-/* ===== SOFT GLOW ===== */
-.hover-card:hover {
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.5),
-    0 0 20px rgba(147,222,255,0.25);
 }

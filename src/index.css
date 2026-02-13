@@ -1,8 +1,13 @@
-/* MAKE FULL WEBSITE BACKGROUND BLACK */
-html, body, #root {
-  background-color: #000 !important;
+/* ================= GLOBAL RESET ================= */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
   width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
+  background: #070712 !important;
+  overflow-x: hidden;
 }

@@ -1,73 +1,144 @@
+/* =============================
+   SECTION
+============================= */
+
 .coding-section {
-  background: black;
-  padding: 50px;
+  position: relative;
+  padding: 90px 50px;
   text-align: center;
   color: white;
-  animation: fadeIn 1s ease-in-out;
+  background: radial-gradient(circle at top, #1b0f3b, #070712);
+  overflow: hidden;
 }
 
-.coding-title {
-  font-size: 32px;
-  margin-bottom: 40px;
+/* =============================
+   PARTICLES
+============================= */
+
+.coding-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
 }
+
+.coding-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(180, 120, 255, 0.9);
+  box-shadow: 0 0 6px rgba(180, 120, 255, 0.9);
+  animation: floatParticle linear infinite;
+  transition: transform 0.3s ease;
+}
+
+/* Gentle floating */
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-60px);
+    opacity: 0.4;
+  }
+}
+
+/* =============================
+   CONTENT LAYER
+============================= */
+
+.coding-title,
+.coding-stats,
+.coding-cards {
+  position: relative;
+  z-index: 2;
+}
+
+/* =============================
+   TITLE
+============================= */
+
+.coding-title {
+  font-size: 36px;
+  margin-bottom: 45px;
+}
+
+/* =============================
+   STATS
+============================= */
 
 .coding-stats {
   display: flex;
   justify-content: center;
-  gap: 80px;
-  margin-bottom: 50px;
+  gap: 90px;
+  margin-bottom: 60px;
 }
 
 .coding-stats h2 {
-  font-size: 40px;
-  font-weight: bold;
+  font-size: 42px;
 }
+
+.coding-stats p {
+  opacity: 0.85;
+}
+
+/* =============================
+   CARDS
+============================= */
 
 .coding-cards {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 45px;
   flex-wrap: wrap;
 }
 
 .coding-card {
-  width: 250px;
-  height: 200px;
-  background: #0c0c12;
-  border-radius: 20px;
+  width: 260px;
+  height: 210px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  padding: 22px;
+  color: white;
+  text-decoration: none;
+  transition: 0.35s ease;
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-decoration: none;
-  color: white;
-  padding: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeInUp 1s ease;
+  justify-content: center;
 }
 
 .coding-card:hover {
-  transform: scale(1.06);
-  box-shadow: 0px 0px 25px rgba(0, 255, 255, 0.4);
+  transform: translateY(-10px);
+  box-shadow: 0 22px 50px rgba(168, 85, 247, 0.45);
 }
 
 .coding-card img {
   width: 90px;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
 .coding-card p {
   font-size: 14px;
-  margin-top: 10px;
+  opacity: 0.85;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+/* =============================
+   RESPONSIVE
+============================= */
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+@media (max-width: 600px) {
+  .coding-stats {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .coding-title {
+    font-size: 30px;
+  }
 }

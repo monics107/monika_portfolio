@@ -3,7 +3,10 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
-import Coding from "./components/Coding";  // <-- ADD THIS
+import Coding from "./components/Coding";
+import Skills from "./components/Skills";
+import Contact from "./components/Contact";
+import "./App.css";
 
 function App() {
   const [activeSection, setActiveSection] = useState("home");
@@ -12,10 +15,16 @@ function App() {
     <div className="app-wrapper">
       <Navbar setActiveSection={setActiveSection} />
 
-      {activeSection === "home" && <Home />}
-      {activeSection === "projects" && <Projects />}
-      {activeSection === "experience" && <Experience />}
-      {activeSection === "coding" && <Coding />}   {/* <-- ADD THIS */}
+      <div className="section-container">
+        {activeSection === "home" && (
+          <Home setActiveSection={setActiveSection} />
+        )}
+        {activeSection === "projects" && <Projects />}
+        {activeSection === "experience" && <Experience />}
+        {activeSection === "coding" && <Coding />}
+        {activeSection === "skills" && <Skills />}
+        {activeSection === "contact" && <Contact />}
+      </div>
     </div>
   );
 }

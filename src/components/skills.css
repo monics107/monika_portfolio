@@ -1,0 +1,255 @@
+/* ============================= */
+/* GLOBAL SECTION */
+/* ============================= */
+.timeline-section {
+  position: relative;
+  padding: 4rem 1.5rem;
+  background: radial-gradient(circle at top, #111133, #070712);
+  color: white;
+  font-family: "Orbitron", sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+.timeline-header h2 {
+  text-align: center;
+  font-size: 3rem;
+  color: #cea2fd;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 25px rgba(206,162,253,0.6);
+}
+
+.timeline-header p {
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  color: rgba(206,162,253,0.6);
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+}
+
+/* ============================= */
+/* DESKTOP TIMELINE */
+/* ============================= */
+.timeline-desktop {
+  position: relative;
+}
+
+.timeline-path {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Static base line */
+.timeline-background {
+  stroke: rgba(168,101,181,0.25);
+  stroke-width: 5;
+  fill: none;
+  stroke-linecap: round;
+}
+
+/* Moving glow line */
+.timeline-glow {
+  stroke: #d38cff;
+  stroke-width: 5;
+  fill: none;
+  stroke-linecap: round;
+
+  stroke-dasharray: 140 900;
+  animation: glowMove 3.5s linear infinite;
+
+  filter: drop-shadow(0 0 8px #d38cff)
+          drop-shadow(0 0 18px #b86bff);
+}
+
+@keyframes glowMove {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -1040;
+  }
+}
+
+/* ============================= */
+/* NODES */
+/* ============================= */
+.timeline-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  animation: nodeFade 0.8s ease forwards;
+}
+
+@keyframes nodeFade {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -30%) scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.node-icon {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(168,101,181,0.6);
+  backdrop-filter: blur(12px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #d38cff;
+  box-shadow: 0 0 20px rgba(168,101,181,0.6);
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* ============================= */
+/* SKILL CARD */
+/* ============================= */
+.node-card {
+  margin-top: 0.8rem;
+  width: 16rem;
+  text-align: center;
+  padding: 1rem;
+
+  background: rgba(0,0,0,0.75);
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.node-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(168,101,181,0.4);
+}
+
+.node-card .time {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: #ce95fd;
+  margin-bottom: 0.4rem;
+}
+
+.node-card h4 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.node-card p {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.65);
+}
+
+/* ============================= */
+/* MOBILE TIMELINE */
+/* ============================= */
+.timeline-mobile {
+  display: block;
+}
+
+.mobile-node {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 2.5rem;
+  border-left: 2px solid rgba(168,101,181,0.3);
+}
+
+.mobile-dot {
+  position: absolute;
+  left: -0.45rem;
+  top: 0.2rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  background: #d38cff;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(211,140,255,0.7);
+}
+
+.mobile-card {
+  background: rgba(0,0,0,0.75);
+  border-radius: 0.8rem;
+  padding: 1rem;
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+}
+
+.mobile-card .time {
+  font-size: 0.7rem;
+  color: #ce95fd;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+.mobile-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.mobile-card p {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.65);
+}
+
+/* ============================= */
+/* MOBILE BUTTON */
+/* ============================= */
+.mobile-button {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.mobile-button button {
+  background: rgba(168,101,181,0.25);
+  border: 1px solid rgba(168,101,181,0.5);
+  color: #ce95fd;
+  padding: 0.6rem 2rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.mobile-button button:hover {
+  background: rgba(168,101,181,0.4);
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+@media (min-width: 1024px) {
+  .timeline-desktop {
+    display: block;
+  }
+  .timeline-mobile {
+    display: none;
+  }
+}
+.timeline-desktop {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.timeline-node {
+  transform: translate(-50%, -50%);
+}

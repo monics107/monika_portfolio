@@ -4,6 +4,27 @@ import { FaGithub } from "react-icons/fa";
 const Projects = () => {
   return (
     <section className="projects" id="projects">
+
+      {/* Floating Bubbles Background */}
+<div className="projects-bubbles">
+  {Array.from({ length: 50 }).map((_, i) => {
+    const size = Math.random() * 8 + 4;
+    return (
+      <span
+        key={i}
+        className="projects-bubble"
+        style={{
+          width: size,
+          height: size,
+          left: Math.random() * 100 + "%",
+          top: Math.random() * 100 + "%",
+          animationDuration: 8 + Math.random() * 6 + "s",
+        }}
+      />
+    );
+  })}
+</div>
+ 
       <h1 className="projects-heading">PROJECTS</h1>
 
       <div className="projects-grid">
@@ -96,22 +117,8 @@ const Projects = () => {
         </div>
       </div>
 
-      {/* SKILLS */}
-      <div className="skills-section" id="skills">
-        <h1 className="skills-heading">Skills</h1>
-        <div className="skills-container">
-          <span className="skill-pill">HTML</span>
-          <span className="skill-pill">CSS</span>
-          <span className="skill-pill">JavaScript</span>
-          <span className="skill-pill">React.js</span>
-          <span className="skill-pill">Java</span>
-          <span className="skill-pill">C++</span>
-          <span className="skill-pill">C</span>
-          <span className="skill-pill">REST API</span>
-          <span className="skill-pill">OOPS</span>
-          <span className="skill-pill">GitHub</span>
-        </div>
-      </div>
+    
+      
     </section>
   );
 };
