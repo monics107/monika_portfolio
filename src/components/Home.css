@@ -138,3 +138,142 @@ button {
     width: 260px;
   }
 }
+
+/* ===== LARGE SCREENS (1440px+) ===== */
+@media (min-width: 1440px) {
+  .hero-content {
+    max-width: 1300px;
+  }
+
+  .hero-title {
+    font-size: 72px;
+  }
+
+  .role {
+    font-size: 36px;
+  }
+
+  .hero-image img {
+    width: 420px;
+  }
+}
+
+/* ===== LAPTOP / SMALL DESKTOP ===== */
+@media (max-width: 1200px) {
+  .hero-content {
+    padding: 0 40px;
+  }
+
+  .hero-title {
+    font-size: 54px;
+  }
+
+  .role {
+    font-size: 28px;
+  }
+
+  .hero-image img {
+    width: 320px;
+  }
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 900px) {
+  .hero {
+    padding: 40px 20px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .hero-flex {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 44px;
+  }
+
+  .role {
+    font-size: 24px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-image img {
+    width: 260px;
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .hero {
+    padding: 30px 16px;
+  }
+
+  .tagline {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  .hero-title {
+    font-size: 34px;
+    line-height: 1.2;
+  }
+
+  .role {
+    font-size: 20px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .hero-image img {
+    width: 220px;
+  }
+}
+
+/* ===== VERY SMALL DEVICES ===== */
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .role {
+    font-size: 18px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+.hero-title {
+  font-size: clamp(28px, 5vw, 64px);
+}
+
+.role {
+  font-size: clamp(18px, 3vw, 32px);
+}

@@ -253,3 +253,256 @@
 .timeline-node {
   transform: translate(-50%, -50%);
 }
+
+/* ============================= */
+/* FLOATING SKILLS SECTION */
+/* ============================= */
+
+
+.floating-skills-wrapper {
+  position: relative;
+  margin-top: 6rem;
+  height: 650px;
+  overflow: hidden;
+}
+
+.floating-skills {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Card Base */
+.float-card {
+  position: absolute;
+  width: 140px;
+height: 140px;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.15);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 35px rgba(168,85,247,0.35);
+  transition: all 0.4s ease;
+
+  animation: floatAnim 6s ease-in-out infinite;
+}
+
+.float-card img {
+  width: 55px;
+  height: 55px;
+}
+
+/* Hover */
+.float-card:hover {
+  transform: translateY(-10px) scale(1.08);
+  box-shadow:
+    0 25px 50px rgba(0,0,0,0.4),
+    0 0 40px #d38cff;
+}
+
+/* Floating animation */
+@keyframes floatAnim {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-18px); }
+  100% { transform: translateY(0px); }
+}
+
+
+
+.card1  { top: 6%;  left: 10%; animation-delay: 0s; }
+.card2  { top: 12%; left: 40%; animation-delay: 1s; }
+.card3  { top: 8%;  left: 75%; animation-delay: 2s; }
+
+.card4  { top: 30%; left: 20%; animation-delay: 1.5s; }
+.card5  { top: 28%; left: 55%; animation-delay: 2.5s; }
+.card6  { top: 32%; left: 85%; animation-delay: 0.5s; }
+
+.card7  { top: 55%; left: 10%; animation-delay: 3s; }
+.card8  { top: 50%; left: 38%; animation-delay: 1.2s; }
+
+.card9  { top: 69%; left: 25%; animation-delay: 2.2s; }
+.card10 { top: 52%; left: 65%; animation-delay: 0.8s; }
+.card11 { top: 66%; left: 80%; animation-delay: 3.2s; }
+
+.card12 { top: 66%; left: 50%; animation-delay: 1.8s; }
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  .floating-skills-wrapper {
+    height: 600px;
+  }
+
+  .float-card {
+    width: 100px;
+    height: 100px;
+  }
+
+  .float-card img {
+    width: 50px;
+    height: 50px;
+  }
+
+}
+@keyframes floatAnim {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.float-card {
+  animation: floatAnim 6s ease-in-out infinite;
+}
+
+/* ============================= */
+/* LARGE SCREENS */
+/* ============================= */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1350px;
+  }
+
+  .timeline-header h2 {
+    font-size: 3.5rem;
+  }
+
+  .floating-skills-wrapper {
+    height: 720px;
+  }
+
+  .float-card {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+/* ============================= */
+/* LAPTOP */
+/* ============================= */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 24px;
+  }
+
+  .node-card {
+    width: 14rem;
+  }
+
+  .timeline-header h2 {
+    font-size: 2.5rem;
+  }
+}
+
+/* ============================= */
+/* TABLET */
+/* ============================= */
+@media (max-width: 1024px) {
+
+  .timeline-desktop {
+    display: none;
+  }
+
+  .timeline-mobile {
+    display: block;
+  }
+
+  .timeline-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .timeline-section {
+    padding: 3rem 1.2rem;
+  }
+}
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+@media (max-width: 768px) {
+
+  .timeline-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .timeline-header p {
+    font-size: 0.7rem;
+  }
+
+  .mobile-card h3 {
+    font-size: 0.95rem;
+  }
+
+  .mobile-card p {
+    font-size: 0.75rem;
+  }
+
+  .floating-skills-wrapper {
+    height: auto;
+    padding-bottom: 40px;
+  }
+
+  .floating-skills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    justify-items: center;
+  }
+
+  .float-card {
+    position: static;
+    width: 90px;
+    height: 90px;
+    animation: none;
+  }
+
+  .float-card img {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* ============================= */
+/* SMALL MOBILE */
+/* ============================= */
+@media (max-width: 480px) {
+
+  .floating-skills {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .float-card {
+    width: 80px;
+    height: 80px;
+  }
+
+  .mobile-node {
+    margin-bottom: 2rem;
+  }
+
+  .mobile-card {
+    padding: 0.8rem;
+  }
+}
+
+/* ============================= */
+/* VERY SMALL */
+/* ============================= */
+@media (max-width: 360px) {
+
+  .timeline-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .floating-skills {
+    grid-template-columns: 1fr;
+  }
+}

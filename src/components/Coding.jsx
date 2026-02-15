@@ -66,12 +66,16 @@ export default function Coding() {
           <p>GeeksForGeeks</p>
         </div>
         <div>
-          <h2>17+</h2>
+          <h2>40+</h2>
           <p>LeetCode</p>
         </div>
         <div>
-          <h2>30+</h2>
+          <h2>50+</h2>
           <p>HackerRank</p>
+        </div>
+        <div>
+          <h2>600+</h2>
+          <p>Skillrack</p>
         </div>
       </div>
 
@@ -88,6 +92,11 @@ export default function Coding() {
 
         <a href="https://www.hackerrank.com/profile/monika2027" target="_blank" rel="noreferrer" className="coding-card">
           <img src="/hackerrank.png" alt="HackerRank" />
+          <p>Visit my profile</p>
+        </a>
+
+        <a href="https://skillrack.com/profile/monika2027" target="_blank" rel="noreferrer" className="coding-card">
+          <img src="/skillrack.jpg" alt="Skillrack" />
           <p>Visit my profile</p>
         </a>
       </div>

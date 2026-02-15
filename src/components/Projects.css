@@ -13,6 +13,8 @@
 .projects-heading {
   font-size: 48px;
   margin-bottom: 50px;
+  text-align: center;   /* Center the heading */
+  width: 100%;
 }
 
 /* =============================

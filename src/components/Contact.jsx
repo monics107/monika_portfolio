@@ -1,22 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import "./Contact.css";
 
+const BUBBLE_COUNT = 80;
+
 const Contact = () => {
   const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
+  const [bubbles, setBubbles] = useState([]);
 
+  // Generate floating bubbles
+  useEffect(() => {
+    const newBubbles = Array.from({ length: BUBBLE_COUNT }).map(() => {
+      const x = Math.random() * window.innerWidth;
+      const y = Math.random() * window.innerHeight;
+      const size = 4 + Math.random() * 6;
+      const duration = 8 + Math.random() * 6;
+      const delay = Math.random() * 5;
+      return { x, y, size, duration, delay };
+    });
+    setBubbles(newBubbles);
+  }, []);
+
+  // Handle form submission
   const sendEmail = (e) => {
     e.preventDefault();
     setLoading(true);
+    setStatus("");
 
     emailjs
       .sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        "service_4rqk6dq", // ✅ Working Service ID
+        "template_jqpk1m7", // Your Template ID
         e.target,
-        "YOUR_PUBLIC_KEY"
+        "mBk0luTWBD0q8WZLb" // Your Public Key
       )
       .then(
         () => {
@@ -25,7 +43,7 @@ const Contact = () => {
           e.target.reset();
         },
         (error) => {
-          console.log(error);
+          console.error("EmailJS Error:", error);
           setStatus("Something went wrong. Please try again.");
           setLoading(false);
         }
@@ -34,27 +52,27 @@ const Contact = () => {
 
   return (
     <section className="contact-wrapper" id="contact">
-
-      {/* BUBBLES BACKGROUND */}
-      <div className="contact-bubbles">
-        {Array.from({ length: 40 }).map((_, i) => (
+      {/* Bubble background */}
+      <div className="bubble-container">
+        {bubbles.map((b, i) => (
           <span
             key={i}
-            className="contact-bubble"
+            className="bubble"
             style={{
-              width: Math.random() * 8 + 4 + "px",
-              height: Math.random() * 8 + 4 + "px",
-              left: Math.random() * 100 + "%",
-              top: Math.random() * 100 + "%",
-              animationDuration: 10 + Math.random() * 10 + "s",
+              left: `${b.x}px`,
+              top: `${b.y}px`,
+              width: `${b.size}px`,
+              height: `${b.size}px`,
+              animationDuration: `${b.duration}s`,
+              animationDelay: `${b.delay}s`,
             }}
           />
         ))}
       </div>
 
+      {/* Main content */}
       <div className="contact-content">
-
-        {/* LEFT SIDE */}
+        {/* Left section: Social links */}
         <div className="contact-left">
           <h1>Let’s Connect</h1>
           <p>Reach me through</p>
@@ -82,28 +100,30 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* RIGHT SIDE FORM */}
+        {/* Right section: Contact form */}
         <div className="contact-right">
           <form className="contact-form" onSubmit={sendEmail}>
-
-            <label>Full Name</label>
+            <label htmlFor="from_name">Full Name</label>
             <input
+              id="from_name"
               type="text"
-              name="user_name"
+              name="from_name"
               placeholder="Enter your full name..."
               required
             />
 
-            <label>Email Address</label>
+            <label htmlFor="from_email">Email Address</label>
             <input
+              id="from_email"
               type="email"
-              name="user_email"
+              name="from_email"
               placeholder="Enter your email address..."
               required
             />
 
-            <label>Message</label>
+            <label htmlFor="message">Message</label>
             <textarea
+              id="message"
               name="message"
               placeholder="Enter your message..."
               required
@@ -126,7 +146,6 @@ const Contact = () => {
             )}
           </form>
         </div>
-
       </div>
     </section>
   );

@@ -138,6 +138,59 @@ export default function SkillsTimeline() {
           )}
         </div>
       </div>
+
+      <div className="floating-skills-wrapper">
+  <div className="floating-skills">
+
+    <div className="float-card card1">
+      <img src="/html.png" alt="HTML" />
+    </div>
+
+    <div className="float-card card2">
+      <img src="/css.png" alt="CSS" />
+    </div>
+
+    <div className="float-card card3">
+      <img src="/js.png" alt="JavaScript" />
+    </div>
+
+    <div className="float-card card4">
+      <img src="/react.png" alt="React" />
+    </div>
+
+    <div className="float-card card5">
+      <img src="/node.jpg" alt="Node.js" />
+    </div>
+
+    <div className="float-card card6">
+      <img src="/java.png" alt="Java" />
+    </div>
+
+    <div className="float-card card7">
+      <img src="/figma.png" alt="Figma" />
+    </div>
+    
+    <div className="float-card card8">
+      <img src="/vscode.png" alt="VS Code" />
+    </div>
+
+    <div className="float-card card9">
+      <img src="/git.png" alt="Git" />
+    </div>
+
+    <div className="float-card card10">
+      <img src="/github.jpg" alt="GitHub" />
+    </div>
+  <div className="float-card card11">
+  <img src="/linkedin.jpg" alt="LinkedIn" />
+</div>
+
+<div className="float-card card12">
+  <img src="/chatgpt.png" alt="ChatGPT" />
+</div>
+  </div>
+</div>
+
     </section>
   );
 }

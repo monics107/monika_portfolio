@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import "./experience.css";
 
-/* ===== Timeline Card ===== */
-function TimelineCard({ item }) {
+/* ===== CARD COMPONENT ===== */
+function ExpCard({ item }) {
   const [ref, inView] = useInView({ threshold: 0.2 });
 
   return (
-    <div className={`timeline-item ${item.position}`} ref={ref}>
+    <div className={`exp-item exp-${item.position}`} ref={ref}>
       <div
-        className="timeline-dot"
+        className="exp-dot"
         style={{ background: item.color }}
       ></div>
 
       <motion.div
-        className="timeline-card"
+        className="exp-card"
         initial={{ opacity: 0, y: 40 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
       >
-        <p className="period">{item.period}</p>
-        <h3 className="title">
+        <p className="exp-period">{item.period}</p>
+        <h3 className="exp-heading">
           {item.company || item.institution} |{" "}
           {item.role || item.degree}
         </h3>
@@ -42,7 +42,6 @@ function TimelineCard({ item }) {
 }
 
 export default function Experience() {
-  const [stars, setStars] = useState([]);
 
   const experience = [
     {
@@ -96,62 +95,50 @@ export default function Experience() {
     }
   ];
 
-  /* Floating Stars */
-  useEffect(() => {
-    const arr = Array.from({ length: 60 }).map(() => ({
-      left: Math.random() * 100 + "%",
-      top: Math.random() * 100 + "%",
-      size: 2 + Math.random() * 3,
-      duration: 5 + Math.random() * 6
-    }));
-    setStars(arr);
-  }, []);
-
   return (
-    <section className="experience-hero">
-      {/* STARS */}
-      <div className="stars-container">
-        {stars.map((s, i) => (
-          <span
-            key={i}
-            className="star"
-            style={{
-              left: s.left,
-              top: s.top,
-              width: s.size,
-              height: s.size,
-              animationDuration: `${s.duration}s`
-            }}
-          />
-        ))}
+    <section className="exp-section">
+
+      {/* Floating Bubbles Background */}
+      <div className="exp-bubbles">
+        {Array.from({ length: 50 }).map((_, i) => {
+          const size = Math.random() * 8 + 4;
+          return (
+            <span
+              key={i}
+              className="exp-bubble"
+              style={{
+                width: size,
+                height: size,
+                left: Math.random() * 100 + "%",
+                top: Math.random() * 100 + "%",
+                animationDuration: 8 + Math.random() * 6 + "s",
+              }}
+            />
+          );
+        })}
       </div>
 
-      <div className="timeline-container">
+      <div className="exp-container">
 
-  {/* EXPERIENCE */}
-  <h2 className="section-title">Experience</h2>
+        <h2 className="exp-title">Experience</h2>
 
-  <div className="timeline-wrapper">
-    <div className="timeline-line"></div>
+        <div className="exp-group">
+          <div className="exp-line"></div>
+          {experience.map(item => (
+            <ExpCard key={item.id} item={item} />
+          ))}
+        </div>
 
-    {experience.map(item => (
-      <TimelineCard key={item.id} item={item} />
-    ))}
-  </div>
+        <h2 className="exp-title">Education</h2>
 
-  {/* EDUCATION */}
-  <h2 className="section-title">Education</h2>
+        <div className="exp-group">
+          <div className="exp-line"></div>
+          {education.map(item => (
+            <ExpCard key={item.id} item={item} />
+          ))}
+        </div>
 
-  <div className="timeline-wrapper">
-    <div className="timeline-line"></div>
-
-    {education.map(item => (
-      <TimelineCard key={item.id} item={item} />
-    ))}
-  </div>
-
-</div>
-
+      </div>
     </section>
   );
 }
