@@ -95,7 +95,7 @@ export default function Coding() {
           <p>Visit my profile</p>
         </a>
 
-        <a href="https://skillrack.com/profile/monika2027" target="_blank" rel="noreferrer" className="coding-card">
+        <a href="https://www.skillrack.com/faces/resume.xhtml?id=438756&key=efc61b5f6bc56a1439e3a8f64a92d0eb7f00c24a" target="_blank" rel="noreferrer" className="coding-card">
           <img src="/skillrack.jpg" alt="Skillrack" />
           <p>Visit my profile</p>
         </a>
