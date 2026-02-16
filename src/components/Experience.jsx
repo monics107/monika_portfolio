@@ -76,7 +76,7 @@ export default function Experience() {
     {
       id: 1,
       period: "Grad: 2027",
-      institution: "RMK College of Engineering",
+      institution: "RMK College of Engineering and Technology",
       degree: "B.E CSE",
       location: "Tamil Nadu",
       extra: "CGPA: 8.14",
@@ -86,7 +86,7 @@ export default function Experience() {
     {
       id: 2,
       period: "HSC – 2023",
-      institution: "Govt Girls Hr Sec School",
+      institution: "Government Girls Higher Secondary School",
       degree: "HSC",
       location: "Uthukottai",
       extra: "83.3%",
